@@ -10,5 +10,43 @@ Gemfile.lock
 tmp
 nbproject
 pkg
-*.swp
 spec/dummy
+.rbenv-version
+.ruby-version
+.vagrant
+Vagrantfile
+/cookbooks
+.rspec
+*.swp
+*.swo
+
+# Ignore bundler config
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp
+/public/assets
+/public/spree
+/public/uploads
+/db/sample/spree/products/
+
+.powenv_prod
+.powenv_dev
+.powenv
+.powder
+static/*
+tj.sql
+config/database.yml
+db/perf
+
+# Ignore application configuration
+/config/application.yml
+
+# Ignore Zeus configuration
+zeus.json
+tags
+
