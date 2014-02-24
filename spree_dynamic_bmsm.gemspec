@@ -3,13 +3,13 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_dynamic_bmsm'
   s.version     = '1.3.3'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.summary     = 'dynamic buy more save more'
+  s.description = 'dynamically create and manage buy more save more promotion tiers'
   s.required_ruby_version = '>= 1.8.7'
 
-  # s.author    = 'You'
-  # s.email     = 'you@example.com'
-  # s.homepage  = 'http://www.spreecommerce.com'
+  s.author    = 'Uri Mikhli'
+  s.email     = 'urimikhli@gmail.com'
+  s.homepage  = 'https://github.com/urimikhli/spree_dynamic_bmsm'
 
   #s.files       = `git ls-files`.split("\n")
   #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
