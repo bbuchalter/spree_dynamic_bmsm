@@ -1,0 +1,33 @@
+<%= form_for(@spree_dynamic_bmsm_tier) do |f| %>
+  <% if @spree_dynamic_bmsm_tier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spree_dynamic_bmsm_tier.errors.count, "error") %> prohibited this spree_dynamic_bmsm_tier from being saved:</h2>
+
+      <ul>
+      <% @spree_dynamic_bmsm_tier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :spree_dynamic_bmsm_groups %><br>
+    <%= f.text_field :spree_dynamic_bmsm_groups %>
+  </div>
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.text_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br>
+    <%= f.text_field :discount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

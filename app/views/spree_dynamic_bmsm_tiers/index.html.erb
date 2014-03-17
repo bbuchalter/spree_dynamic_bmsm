@@ -1,0 +1,33 @@
+<h1>Listing spree_dynamic_bmsm_tiers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Spree dynamic bmsm groups</th>
+      <th>Label</th>
+      <th>Level</th>
+      <th>Discount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spree_dynamic_bmsm_tiers.each do |spree_dynamic_bmsm_tier| %>
+      <tr>
+        <td><%= spree_dynamic_bmsm_tier.spree_dynamic_bmsm_groups %></td>
+        <td><%= spree_dynamic_bmsm_tier.label %></td>
+        <td><%= spree_dynamic_bmsm_tier.level %></td>
+        <td><%= spree_dynamic_bmsm_tier.discount %></td>
+        <td><%= link_to 'Show', spree_dynamic_bmsm_tier %></td>
+        <td><%= link_to 'Edit', edit_spree_dynamic_bmsm_tier_path(spree_dynamic_bmsm_tier) %></td>
+        <td><%= link_to 'Destroy', spree_dynamic_bmsm_tier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spree dynamic bmsm tier', new_spree_dynamic_bmsm_tier_path %>

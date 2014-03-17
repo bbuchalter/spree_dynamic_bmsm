@@ -1,0 +1,29 @@
+<h1>Listing spree_dynamic_bmsm_groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spree_dynamic_bmsm_groups.each do |spree_dynamic_bmsm_group| %>
+      <tr>
+        <td><%= spree_dynamic_bmsm_group.name %></td>
+        <td><%= spree_dynamic_bmsm_group.description %></td>
+        <td><%= link_to 'Show', spree_dynamic_bmsm_group %></td>
+        <td><%= link_to 'Edit', edit_spree_dynamic_bmsm_group_path(spree_dynamic_bmsm_group) %></td>
+        <td><%= link_to 'Destroy', spree_dynamic_bmsm_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spree dynamic bmsm group', new_spree_dynamic_bmsm_group_path %>
