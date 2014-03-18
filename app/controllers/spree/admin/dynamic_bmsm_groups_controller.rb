@@ -53,6 +53,7 @@ class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def spree_dynamic_bmsm_group_params
-      params.require(:spree_dynamic_bmsm_group).permit(:name, :description)
+      #params.require(:dynamic_bmsm_group).permit(:name, :description)
+      params
     end
 end
