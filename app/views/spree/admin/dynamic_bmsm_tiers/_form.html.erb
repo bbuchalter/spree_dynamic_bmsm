@@ -1,3 +1,4 @@
+
 <%= form_for(@spree_dynamic_bmsm_tier) do |f| %>
   <% if @spree_dynamic_bmsm_tier.errors.any? %>
     <div id="error_explanation">
@@ -12,8 +13,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :admin_dynamic_bmsm_groups %><br>
-    <%= f.text_field :admin_dynamic_bmsm_groups %>
+    <%= f.label :bmsm_groups %><br>
+    <%= f.text_field :dynamic_bmsm_group_id %>
   </div>
   <div class="field">
     <%= f.label :label %><br>
