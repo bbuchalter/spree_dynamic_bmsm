@@ -1,2 +1,2 @@
-module SpreeDynamicBmsmGroupsHelper
+module Spree::DynamicBmsmGroupsHelper
 end

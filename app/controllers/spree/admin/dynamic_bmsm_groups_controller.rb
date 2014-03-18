@@ -1,9 +1,9 @@
-class SpreeDynamicBmsmGroupsController < ApplicationController
-  before_action :set_spree_dynamic_bmsm_group, only: [:show, :edit, :update, :destroy]
+class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
+  before_filter :set_spree_dynamic_bmsm_group, only: [:show, :edit, :update, :destroy]
 
   # GET /spree_dynamic_bmsm_groups
   def index
-    @spree_dynamic_bmsm_groups = SpreeDynamicBmsmGroup.all
+    @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
   end
 
   # GET /spree_dynamic_bmsm_groups/1
@@ -12,7 +12,7 @@ class SpreeDynamicBmsmGroupsController < ApplicationController
 
   # GET /spree_dynamic_bmsm_groups/new
   def new
-    @spree_dynamic_bmsm_group = SpreeDynamicBmsmGroup.new
+    @spree_dynamic_bmsm_group = Spree::DynamicBmsmGroup.new
   end
 
   # GET /spree_dynamic_bmsm_groups/1/edit
@@ -21,7 +21,7 @@ class SpreeDynamicBmsmGroupsController < ApplicationController
 
   # POST /spree_dynamic_bmsm_groups
   def create
-    @spree_dynamic_bmsm_group = SpreeDynamicBmsmGroup.new(spree_dynamic_bmsm_group_params)
+    @spree_dynamic_bmsm_group = Spree::DynamicBmsmGroup.new(spree_dynamic_bmsm_group_params)
 
     if @spree_dynamic_bmsm_group.save
       redirect_to @spree_dynamic_bmsm_group, notice: 'Spree dynamic bmsm group was successfully created.'
@@ -48,7 +48,7 @@ class SpreeDynamicBmsmGroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_spree_dynamic_bmsm_group
-      @spree_dynamic_bmsm_group = SpreeDynamicBmsmGroup.find(params[:id])
+      @spree_dynamic_bmsm_group = Spree::DynamicBmsmGroup.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -1,2 +1,2 @@
-module SpreeDynamicBmsmTiersHelper
+module Spree::DynamicBmsmTiersHelper
 end
