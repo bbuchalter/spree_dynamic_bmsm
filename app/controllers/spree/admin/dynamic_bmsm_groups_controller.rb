@@ -17,6 +17,7 @@ class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
 
   # GET /spree_dynamic_bmsm_groups/1/edit
   def edit
+    @spree_dynamic_bmsm_group = Spree::DynamicBmsmGroup.find(params[:id])
   end
 
   # POST /spree_dynamic_bmsm_groups
@@ -31,8 +32,8 @@ class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
 
   # PATCH/PUT /spree_dynamic_bmsm_groups/1
   def update
-    if @spree_dynamic_bmsm_group.update(spree_dynamic_bmsm_group_params)
-      redirect_to @spree_dynamic_bmsm_group, notice: 'Spree dynamic bmsm group was successfully updated.'
+    if @spree_dynamic_bmsm_group.update_attributes(spree_dynamic_bmsm_group_params)
+      redirect_to admin_dynamic_bmsm_group_path(@spree_dynamic_bmsm_group), notice: 'Spree dynamic bmsm group was successfully updated.'
     else
       render action: 'edit'
     end

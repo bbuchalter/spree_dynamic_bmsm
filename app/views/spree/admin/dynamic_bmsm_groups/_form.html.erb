@@ -1,4 +1,4 @@
-<%= form_for(@spree_dynamic_bmsm_group, url: admin_dynamic_bmsm_groups_path) do |f| %>
+<%= form_for(@spree_dynamic_bmsm_group, url: admin_dynamic_bmsm_group_path(@spree_dynamic_bmsm_group.id)) do |f| %>
   <% if @spree_dynamic_bmsm_group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@spree_dynamic_bmsm_group.errors.count, "error") %> prohibited this spree_dynamic_bmsm_group from being saved:</h2>
