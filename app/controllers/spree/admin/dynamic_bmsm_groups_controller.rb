@@ -24,7 +24,7 @@ class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
     @spree_dynamic_bmsm_group = Spree::DynamicBmsmGroup.new(spree_dynamic_bmsm_group_params)
 
     if @spree_dynamic_bmsm_group.save
-      redirect_to @spree_dynamic_bmsm_group, notice: 'Spree dynamic bmsm group was successfully created.'
+      redirect_to @spree_dynamic_bmsm_group, url: admin_dynamic_bmsm_groups_path, notice: 'Spree dynamic bmsm group was successfully created.'
     else
       render action: 'new'
     end
@@ -54,6 +54,6 @@ class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def spree_dynamic_bmsm_group_params
       #params.require(:dynamic_bmsm_group).permit(:name, :description)
-      params
+      params[:dynamic_bmsm_group]
     end
 end
