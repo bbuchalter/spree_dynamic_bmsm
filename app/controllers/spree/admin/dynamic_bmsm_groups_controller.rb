@@ -22,9 +22,8 @@ class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
   # POST /spree_dynamic_bmsm_groups
   def create
     @spree_dynamic_bmsm_group = Spree::DynamicBmsmGroup.new(spree_dynamic_bmsm_group_params)
-
     if @spree_dynamic_bmsm_group.save
-      redirect_to @spree_dynamic_bmsm_group, url: admin_dynamic_bmsm_groups_path, notice: 'Spree dynamic bmsm group was successfully created.'
+      redirect_to admin_dynamic_bmsm_group_path(@spree_dynamic_bmsm_group), notice: 'Spree dynamic bmsm group was successfully created.'
     else
       render action: 'new'
     end
