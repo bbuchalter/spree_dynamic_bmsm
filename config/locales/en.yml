@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+
+  promotion_rule_types:
+    bmsm_promotion_rule:
+      name: "Buy More Save More"
+      description: "Buy More Save More Tiers eligibility"
