@@ -1,4 +1,4 @@
-class Spree::Admin::DynamicBmsmGroupsController < ApplicationController
+class Spree::Admin::DynamicBmsmGroupsController < Spree::Admin::BaseController
   before_filter :set_spree_dynamic_bmsm_group, only: [:show, :edit, :update, :destroy]
 
   # GET /spree_dynamic_bmsm_groups

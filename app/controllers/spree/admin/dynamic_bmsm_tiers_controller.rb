@@ -1,4 +1,4 @@
-class Spree::Admin::DynamicBmsmTiersController < ApplicationController
+class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
   before_filter :set_dynamic_bmsm_tier, only: [:show, :edit, :update, :destroy]
 
   # GET /spree_dynamic_bmsm_tiers
