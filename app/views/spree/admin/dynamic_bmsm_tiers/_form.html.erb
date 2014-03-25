@@ -14,7 +14,12 @@
 
   <div class="field">
     <%= f.label :bmsm_groups %><br>
-    <%= f.text_field :dynamic_bmsm_group_id %>
+    <%= f.collection_select :dynamic_bmsm_group_id,
+                            @spree_dynamic_bmsm_groups,
+                            :id,
+                            :name,
+                            :prompt => true
+    %>
   </div>
   <div class="field">
     <%= f.label :label %><br>

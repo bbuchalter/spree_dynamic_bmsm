@@ -13,11 +13,13 @@ class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
   # GET /spree_dynamic_bmsm_tiers/new
   def new
     @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.new
+    @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
   end
 
   # GET /spree_dynamic_bmsm_tiers/1/edit
   def edit
     @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.find(params[:id])
+    @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
   end
 
   # POST /spree_dynamic_bmsm_tiers
