@@ -42,7 +42,7 @@ class Spree::Admin::DynamicBmsmGroupsController < Spree::Admin::BaseController
   # DELETE /spree_dynamic_bmsm_groups/1
   def destroy
     @spree_dynamic_bmsm_group.destroy
-    redirect_to spree_dynamic_bmsm_groups_url, notice: 'Spree dynamic bmsm group was successfully destroyed.'
+    redirect_to admin_dynamic_bmsm_groups_path, notice: 'Spree dynamic bmsm group was successfully destroyed.'
   end
 
   private
