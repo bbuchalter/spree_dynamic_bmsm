@@ -17,14 +17,14 @@ class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
 
   # GET /spree_dynamic_bmsm_tiers/1/edit
   def edit
+    @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.find(params[:id])
   end
 
   # POST /spree_dynamic_bmsm_tiers
   def create
-    @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.new(dynamic_bmsm_tier_params)
-
+    @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.new(spree_dynamic_bmsm_tier_params)
     if @spree_dynamic_bmsm_tier.save
-      redirect_to @spree_dynamic_bmsm_tier, notice: 'dynamic bmsm tier was successfully created.'
+      redirect_to admin_dynamic_bmsm_tier_path(@spree_dynamic_bmsm_tier), notice: 'dynamic bmsm tier was successfully created.'
     else
       render action: 'new'
     end
@@ -32,8 +32,8 @@ class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
 
   # PATCH/PUT /spree_dynamic_bmsm_tiers/1
   def update
-    if @spree_dynamic_bmsm_tier.update(dynamic_bmsm_tier_params)
-      redirect_to @spree_dynamic_bmsm_tier, notice: 'dynamic bmsm tier was successfully updated.'
+    if @spree_dynamic_bmsm_tier.update_attributes(spree_dynamic_bmsm_tier_params)
+      redirect_to admin_dynamic_bmsm_tier_path(@spree_dynamic_bmsm_tier), notice: 'dynamic bmsm tier was successfully updated.'
     else
       render action: 'edit'
     end
@@ -42,7 +42,7 @@ class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
   # DELETE /spree_dynamic_bmsm_tiers/1
   def destroy
     @spree_dynamic_bmsm_tier.destroy
-    redirect_to dynamic_bmsm_tiers_url, notice: 'dynamic bmsm tier was successfully destroyed.'
+    redirect_to admin_dynamic_bmsm_tiers_path, notice: 'dynamic bmsm tier was successfully destroyed.'
   end
 
   private
@@ -52,7 +52,8 @@ class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
     end
 
     # Only allow a trusted parameter "white list" through.
-    def dynamic_bmsm_tier_params
-      params.require(:dynamic_bmsm_tier).permit(:dynamic_bmsm_groups, :label, :level, :discount)
+    def spree_dynamic_bmsm_tier_params
+      #params.require(:dynamic_bmsm_tier).permit(:dynamic_bmsm_groups, :label, :level, :discount)
+      params[:dynamic_bmsm_tier]
     end
 end

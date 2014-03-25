@@ -1,5 +1,5 @@
 
-<%= form_for(@spree_dynamic_bmsm_tier) do |f| %>
+<%= form_for [spree, :admin, @spree_dynamic_bmsm_tier] do |f| %>
   <% if @spree_dynamic_bmsm_tier.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@spree_dynamic_bmsm_tier.errors.count, "error") %> prohibited this spree_dynamic_bmsm_tier from being saved:</h2>
