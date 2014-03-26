@@ -13,9 +13,9 @@ class BmsmPromotionRule < Spree::PromotionRule
 
     group = order.user.get_bmsm_group #this assumes that there is a deafult group 1
 
-    tiers = Spree::DynamicBmsmTier.find_by_dynamic_bmsm_group_id(group).orderby(:level)
+    tiers = Spree::DynamicBmsmTier.where(:dynamic_bmsm_group_id => group).order(:level).reverse_order
 
-    #this will only work if tiers is an ordered list by level
+    #this will only work if tiers is an ordered list by level desc
     eligible_level = 0
     tiers.each do | tier|
       if item_total_after_adjustments >= tier.level
