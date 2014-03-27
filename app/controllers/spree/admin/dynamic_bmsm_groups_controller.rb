@@ -45,6 +45,13 @@ class Spree::Admin::DynamicBmsmGroupsController < Spree::Admin::BaseController
     redirect_to admin_dynamic_bmsm_groups_path, notice: 'Spree dynamic bmsm group was successfully destroyed.'
   end
 
+  def users
+    
+    @spree_dynamic_bmsm_group_users =  Spree::User.where(:spree_dynamic_bmsm_group_id => params[:id])
+
+    @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_spree_dynamic_bmsm_group

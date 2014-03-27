@@ -8,6 +8,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,6 +17,7 @@
       <tr>
         <td><%= dynamic_bmsm_group.name %></td>
         <td><%= dynamic_bmsm_group.description %></td>
+        <td></td>
         <td><%= link_to 'Show', admin_dynamic_bmsm_group_path(dynamic_bmsm_group) %></td>
         <td><%= link_to 'Edit', edit_admin_dynamic_bmsm_group_path(dynamic_bmsm_group.id) %></td>
         <td><%= link_to 'Destroy', admin_dynamic_bmsm_group_path(dynamic_bmsm_group.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
