@@ -46,8 +46,7 @@ class Spree::Admin::DynamicBmsmGroupsController < Spree::Admin::BaseController
   end
 
   def users
-    
-    @spree_dynamic_bmsm_group_users =  Spree::User.where(:spree_dynamic_bmsm_group_id => params[:id])
+    @spree_dynamic_bmsm_group_users =  Spree::User.where(:spree_dynamic_bmsm_group_id => params[:group_id])
 
     @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
   end

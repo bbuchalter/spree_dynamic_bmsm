@@ -15,16 +15,11 @@
     <% @spree_dynamic_bmsm_group_users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= @spree_dynamic_bmsm_group[user.spree_dynamic_bmsm_group_id].name %></td>
-        <td><%= collection_select :dynamic_bmsm_group_id,
-                            @spree_dynamic_bmsm_groups,
-                            :id,
-                            :name,
-                            :prompt => true
-            %>
-        </td>
-        <td><%= link_to 'Groups', admin_dynamic_bmsm_groups_path %></td>
-        <td><%= link_to 'Tiers', admin_dynamic_bmsm_tiers_path %></td>
+        <td><%= @spree_dynamic_bmsm_groups[user.get_bmsm_group].name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Spree dynamic bmsm group', new_admin_dynamic_bmsm_group_path %>
+<%= link_to 'Back to groups', admin_dynamic_bmsm_groups_path %>
