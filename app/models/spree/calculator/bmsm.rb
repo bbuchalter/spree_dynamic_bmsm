@@ -24,18 +24,33 @@ module Spree
       tiers = Spree::DynamicBmsmTier.where(:dynamic_bmsm_group_id => group).order(:level).reverse_order
 
       #this will only work if tiers is an ordered list by level
-      discount = 0
+      discount_amount = 0
       eligible_level = 0
+      eligible_discount = 0
       tiers.each do | tier|
         if item_total_after_adjustments >= tier.level
           eligible_level = tier.level
-          discount = 0 - item_total * (tier.discount / 100) #the tier discount is kep inthe the db as a % need to divide by 100 to get to dollar amount
+          eligible_discount = tier.discount
+          discount_amount = 0 - item_total * (tier.discount / 100) #the tier discount is kep inthe the db as a % need to divide by 100 to get to dollar amount
           break #only one tier per order. Ordered tier list means we dont need a range.
         end
       end
-      Rails.logger.info "[ORDER #{order.number}, Dynamic BMSM Calculator: level:#{eligible_level}] : discount:#{discount}  "
+      if eligible_level > 0
+        #Should probably do this in order_decorator model, but lets see what happens
+        eligible_adjustments = order.adjustments.promotion.eligible
+        eligible_adjustments.each do |adjustment|
+          #promo_name = adjustment.label.match(/^Promotion \((Buy more save more)/).try(:[], 1)
+          if promo_name = adjustment.label.match(/^(Promotion \(Dynamic BMSM\))$/).try(:[], 1)
+            if promo_name.sub!(/Dynamic BMSM\)/,"Buy More Save More #{eligible_discount.to_int}%)")
+              adjustment.update_column(:label,promo_name)
+            end
+          end
+        end
+      #
+      end 
+      Rails.logger.info "[ORDER #{order.number}, Dynamic BMSM Calculator: level:#{eligible_level}] : discount:#{discount_amount}  "
 
-      return discount
+      return discount_amount
     end
   end
 end
