@@ -17,7 +17,7 @@ Spree::User.class_eval do
     ## if a default is given set it as the group
     ## unless it doesnt exist, at which point,
     ## just assign a random 'Existing' group
-    if default != 0 && group_list.grep(default)
+    if default != 0 && group_list.grep(default).count == 1
       ##assign group ID
       group = default
     else
