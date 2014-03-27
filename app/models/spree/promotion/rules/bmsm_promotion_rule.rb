@@ -9,6 +9,8 @@ module Spree
         #attr_accessible :preferred_min_amount, :preferred_max_amount
 
         def eligible?(order, options = {})
+          user = order.try(:user)
+          return false if user.nil?
 
           item_total = order.line_items_excluding_excluded_products.map(&:amount).sum
           adjustments = order.price_adjustment_totals.map(&:amount).sum

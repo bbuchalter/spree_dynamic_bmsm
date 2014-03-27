@@ -16,6 +16,9 @@ module Spree
       adjustments = order.price_adjustment_totals.map(&:amount).sum
       item_total_after_adjustments = item_total + adjustments
 
+      user = order.try(:user)
+      return 0 if user.nil?
+
       group = order.user.get_bmsm_group #this assumes that there is a deafult group 1
 
       tiers = Spree::DynamicBmsmTier.where(:dynamic_bmsm_group_id => group).order(:level).reverse_order
