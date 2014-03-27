@@ -37,11 +37,16 @@ module Spree
       end
       if eligible_level > 0
         #Should probably do this in order_decorator model, but lets see what happens
-        eligible_adjustments = order.adjustments.promotion.eligible
+        eligible_adjustments = order.adjustments.promotion
         eligible_adjustments.each do |adjustment|
           #promo_name = adjustment.label.match(/^Promotion \((Buy more save more)/).try(:[], 1)
           if promo_name = adjustment.label.match(/^(Promotion \(Dynamic BMSM\))$/).try(:[], 1)
             if promo_name.sub!(/Dynamic BMSM\)/,"Buy More Save More #{eligible_discount.to_int}%)")
+              adjustment.update_column(:label,promo_name)
+            end
+          end
+          if promo_name = adjustment.label.match(/^(Promotion \(Buy More Save More.*\))$/).try(:[], 1)
+            if promo_name.sub!(/Buy More Save More.*\)/,"Buy More Save More #{eligible_discount.to_int}%)")
               adjustment.update_column(:label,promo_name)
             end
           end
