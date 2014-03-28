@@ -9,7 +9,6 @@ Spree::Core::Engine.routes.draw do
     resources :dynamic_bmsm_groups do
       collection do
         get 'users'
-        put 'users'
         put 'update_user_group'
       end
     end
