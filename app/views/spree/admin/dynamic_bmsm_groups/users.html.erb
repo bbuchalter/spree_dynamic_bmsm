@@ -16,8 +16,8 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= @spree_dynamic_bmsm_groups[user.get_bmsm_group].name %></td>
-        <td><%= link_to 'Tiers', admin_dynamic_bmsm_tiers_path(:group_id => user.get_bmsm_group) %></td></td>
-        <td></td>
+        <td><%= link_to 'Tiers', admin_dynamic_bmsm_tiers_path(:group_id => user.get_bmsm_group) %></td>
+        <td class="field"><%= render 'user_form', :user => user %></td>
         <td></td>
         <td></td>
       </tr>

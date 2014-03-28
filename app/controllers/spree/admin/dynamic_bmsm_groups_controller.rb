@@ -51,6 +51,24 @@ class Spree::Admin::DynamicBmsmGroupsController < Spree::Admin::BaseController
     @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
   end
 
+  def update_user_group
+    #show dropdown form for changing user group
+    user_id = params[:user][:user_id]
+    user = Spree::User.find(user_id)
+    group = params[:user][:spree_dynamic_bmsm_group_id]
+    @spree_dynamic_bmsm_group_users =  Spree::User.where(:spree_dynamic_bmsm_group_id => group)
+    @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
+    if user.present? && group.present?
+      if user.update_attribute(:spree_dynamic_bmsm_group_id, group)
+        render action: 'users', notice: 'Users bmsm group was successfully updated.'
+        #redirect_to admin_dynamic_bmsm_group_path, notice: 'Users bmsm group was successfully updated.'
+      end
+    else
+      render action: 'users'
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_spree_dynamic_bmsm_group
