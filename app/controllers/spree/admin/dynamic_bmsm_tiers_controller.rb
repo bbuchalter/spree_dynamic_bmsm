@@ -3,7 +3,12 @@ class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
 
   # GET /spree_dynamic_bmsm_tiers
   def index
-    @spree_dynamic_bmsm_tiers = Spree::DynamicBmsmTier.all
+    group_id = params[:group_id]
+    if group_id.present? && group_id.to_i >0
+      @spree_dynamic_bmsm_tiers = Spree::DynamicBmsmTier.where(:dynamic_bmsm_group_id => group_id.to_i)
+    else
+      @spree_dynamic_bmsm_tiers = Spree::DynamicBmsmTier.all
+    end
   end
 
   # GET /spree_dynamic_bmsm_tiers/1
