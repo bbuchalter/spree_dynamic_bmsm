@@ -2,10 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-
   bmsm_calculator_description: "Buy More Save More Tier Discount"
-
   promotion_rule_types:
     bmsm_promotion_rule:
       name: "Buy More Save More"

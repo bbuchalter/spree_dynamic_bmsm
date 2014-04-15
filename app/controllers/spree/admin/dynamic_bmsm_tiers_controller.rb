@@ -1,7 +1,6 @@
 class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
-  before_filter :set_dynamic_bmsm_tier, only: [:show, :edit, :update, :destroy]
+  before_filter :set_dynamic_bmsm_tier, :only => [:edit, :update, :destroy]
 
-  # GET /spree_dynamic_bmsm_tiers
   def index
     group_id = params[:group_id]
     if group_id.present? && group_id.to_i >0
@@ -11,45 +10,29 @@ class Spree::Admin::DynamicBmsmTiersController < Spree::Admin::BaseController
     end
   end
 
-  # GET /spree_dynamic_bmsm_tiers/1
-  def show
-  end
-
-  # GET /spree_dynamic_bmsm_tiers/new
   def new
     @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.new
-    @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
   end
 
-  # GET /spree_dynamic_bmsm_tiers/1/edit
   def edit
     @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.find(params[:id])
-    @spree_dynamic_bmsm_groups = Spree::DynamicBmsmGroup.all
   end
 
-  # POST /spree_dynamic_bmsm_tiers
   def create
     @spree_dynamic_bmsm_tier = Spree::DynamicBmsmTier.new(spree_dynamic_bmsm_tier_params)
     if @spree_dynamic_bmsm_tier.save
-      redirect_to admin_dynamic_bmsm_tier_path(@spree_dynamic_bmsm_tier), notice: 'dynamic bmsm tier was successfully created.'
+      redirect_to admin_dynamic_bmsm_tiers_path, :notice => 'Tier was successfully created.'
     else
-      render action: 'new'
+      render :action => 'new'
     end
   end
 
-  # PATCH/PUT /spree_dynamic_bmsm_tiers/1
   def update
     if @spree_dynamic_bmsm_tier.update_attributes(spree_dynamic_bmsm_tier_params)
-      redirect_to admin_dynamic_bmsm_tier_path(@spree_dynamic_bmsm_tier), notice: 'dynamic bmsm tier was successfully updated.'
+      redirect_to admin_dynamic_bmsm_tiers_path, notice: 'Tier was successfully updated.'
     else
-      render action: 'edit'
+      render :action => 'edit'
     end
-  end
-
-  # DELETE /spree_dynamic_bmsm_tiers/1
-  def destroy
-    @spree_dynamic_bmsm_tier.destroy
-    redirect_to admin_dynamic_bmsm_tiers_path, notice: 'dynamic bmsm tier was successfully destroyed.'
   end
 
   private

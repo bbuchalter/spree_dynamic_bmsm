@@ -59,13 +59,9 @@ Add a new adjustment action. In the calculator dropdown you will find a Buy More
 
 Users
 ================
-`spree_users` has a new column called `spree_dynamic_bmsm_group_id` by default it is null.
+`spree_users` has a new column called `dynamic_bmsm_group_id` by default it is null.
 
 `Spree::User` now has two new methods:
-
-`get_bmsm_group` -- gets the bmsm group id that the usr belongs to
-
-`set_bmsm_group(group=0)` -- sets the group that the user belongs to. If no group is sent (e.g. `Spree::User.set_bmsm_group` is called ) then a RANDOM group is assigned from the list of already created groups that have at least one tier. otherwise nothing happens.
 
 You can use these methods to update users with groups.
 

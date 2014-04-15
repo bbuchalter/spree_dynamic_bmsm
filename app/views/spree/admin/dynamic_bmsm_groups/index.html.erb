@@ -1,13 +1,14 @@
-<h1>Listing dynamic bmsm groups</h1>
-<h4>  <%= link_to 'Tiers', admin_dynamic_bmsm_tiers_path %> </h4>
+<h1>DBMSM Groups</h1>
+<%= link_to 'Create Group', new_admin_dynamic_bmsm_group_path %>
+|
+<%= link_to 'Manage Tiers', admin_dynamic_bmsm_tiers_path %>
+
 <table>
   <thead>
     <tr>
+      <th>Number</th>
       <th>Name</th>
       <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -15,17 +16,15 @@
   <tbody>
     <% @spree_dynamic_bmsm_groups.each do |dynamic_bmsm_group| %>
       <tr>
+        <td><%= dynamic_bmsm_group.number %></td>
         <td><%= dynamic_bmsm_group.name %></td>
         <td><%= dynamic_bmsm_group.description %></td>
-        <td><%= link_to 'Users', users_admin_dynamic_bmsm_groups_path(:group_id =>dynamic_bmsm_group.id) %></td></td>
-        <td><%= link_to 'Show', admin_dynamic_bmsm_group_path(dynamic_bmsm_group) %></td>
-        <td><%= link_to 'Edit', edit_admin_dynamic_bmsm_group_path(dynamic_bmsm_group.id) %></td>
-        <td><%= link_to 'Destroy', admin_dynamic_bmsm_group_path(dynamic_bmsm_group.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Users', users_admin_dynamic_bmsm_group_path(dynamic_bmsm_group) %>
+          |
+          <%= link_to 'Edit', edit_admin_dynamic_bmsm_group_path(dynamic_bmsm_group) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Spree dynamic bmsm group', new_admin_dynamic_bmsm_group_path %>

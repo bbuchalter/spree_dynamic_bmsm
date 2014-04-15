@@ -1,30 +1,20 @@
-<h1>User Groups</h1>
+<h1>User for <%= @group.name %></h1>
+<%= link_to 'Back to Groups', admin_dynamic_bmsm_groups_path %>
+
 <table>
   <thead>
     <tr>
       <th>User</th>
-      <th>Group</th>
-      <th>Tiers</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @spree_dynamic_bmsm_group_users.each do |user| %>
+    <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= @spree_dynamic_bmsm_groups[user.get_bmsm_group].name %></td>
-        <td><%= link_to 'Tiers', admin_dynamic_bmsm_tiers_path(:group_id => user.get_bmsm_group) %></td>
-        <td class="field"><%= render 'user_form', :user => user %></td>
-        <td></td>
-        <td></td>
+        <td class="field"><%= render 'user_form', :user => user, :group => @group %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Back to groups', admin_dynamic_bmsm_groups_path %>

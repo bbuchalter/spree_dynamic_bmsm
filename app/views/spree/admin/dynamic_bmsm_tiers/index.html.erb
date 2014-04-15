@@ -1,16 +1,16 @@
-<h1>Listing spree_dynamic_bmsm_tiers</h1>
+<h1>DBMSM Tiers</h1>
 
-<h4>  <%= link_to 'Groups', admin_dynamic_bmsm_groups_path %> </h4>
+<%= link_to 'Create New Tier', new_admin_dynamic_bmsm_tier_path %>
+|
+<%= link_to 'Manage Groups', admin_dynamic_bmsm_groups_path %>
 
 <table>
   <thead>
     <tr>
-      <th>group</th>
-      <th>Label</th>
-      <th>Level</th>
-      <th>Discount</th>
-      <th></th>
-      <th></th>
+      <th>Group #</th>
+      <th>Internal Label</th>
+      <th>Order Total Threshold</th>
+      <th>Discount %</th>
       <th></th>
     </tr>
   </thead>
@@ -18,20 +18,14 @@
   <tbody>
     <% @spree_dynamic_bmsm_tiers.each do |dynamic_bmsm_tier| %>
       <tr>
-        <td><%= dynamic_bmsm_tier.dynamic_bmsm_group_id %></td>
+        <td><%= dynamic_bmsm_tier.dynamic_bmsm_group.number %></td>
         <td><%= dynamic_bmsm_tier.label %></td>
-        <td><%= dynamic_bmsm_tier.level %></td>
-        <td><%= dynamic_bmsm_tier.discount %></td>
-        <td><%= link_to 'Show', admin_dynamic_bmsm_tier_path(dynamic_bmsm_tier) %></td>
-        <td><%= link_to 'Edit', edit_admin_dynamic_bmsm_tier_path(dynamic_bmsm_tier) %></td>
-        <td><%= link_to 'Destroy', admin_dynamic_bmsm_tier_path(dynamic_bmsm_tier.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= number_to_currency(dynamic_bmsm_tier.level) %></td>
+        <td><%= dynamic_bmsm_tier.discount %>%</td>
+        <td>
+          <%= link_to 'Edit', edit_admin_dynamic_bmsm_tier_path(dynamic_bmsm_tier) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Spree dynamic bmsm tier', new_admin_dynamic_bmsm_tier_path %>
-<p>
-<%= link_to 'Tiers', admin_dynamic_bmsm_tiers_path %>

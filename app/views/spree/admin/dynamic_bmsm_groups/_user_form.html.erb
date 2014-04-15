@@ -1,11 +1,10 @@
-<%= form_for user, :url => update_user_group_admin_dynamic_bmsm_groups_path  do |f| %>
-    <%= f.hidden_field :user_id,:value => user.id %>
-    <%= f.collection_select :spree_dynamic_bmsm_group_id,
-                            @spree_dynamic_bmsm_groups,
+<%= form_for user, :url => update_user_group_admin_dynamic_bmsm_group_path(group)  do |f| %>
+    <%= f.hidden_field :id %>
+    <%= f.collection_select :dynamic_bmsm_group_id,
+                            Spree::DynamicBmsmGroup.all,
                             :id,
                             :name,
                             :prompt => true
     %>
    <%= f.submit %>
-
 <% end %>
